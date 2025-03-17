@@ -161,7 +161,7 @@ pub mod cheese_rush {
                 require!(player.last_rush_start > 0, CheeseError::NoActiveRush);
                 require!(player.inventory.cake > 0, CheeseError::InsufficientBoost);
                 player.inventory.cake -= 1;
-                player.rush_duration = player.rush_duration.saturating_sub(300);
+                player.last_rush_start = player.last_rush_start.saturating_sub(300);
             }
             BoostType::Milk => {
                 require!(player.inventory.milk > 0, CheeseError::InsufficientBoost);
